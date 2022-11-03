@@ -12,7 +12,7 @@
     <script type="module" src="./index.js"></script>
   </head>
   <body>
-    <header class="header">
+    <header class="lib-header">
       <div class="container">
         <nav class="header__nav">
           <a href="./index.html" class="header-logo">
@@ -23,40 +23,25 @@
           </a>
           <ul class="header__nav-list">
             <li class="header__nav-item">
-              <a
-                class="header__nav-link link-current"
-                href="./index.html"
-                data-color
+              <a class="header__nav-link" href="./index.html" data-color
                 >Home</a
               >
             </li>
-            <li class="header__nav-item">
+            <li class="header__nav-item link-current">
               <a class="header__nav-link" href="./library.html">My library</a>
             </li>
           </ul>
         </nav>
-        <div class="search-form">
-          <label class="search-form_label">
-            <input
-              class="search-form_input"
-              type="text"
-              name="movie-search"
-              placeholder="Movie search"
-            />
-          </label>
-          <button class="search-btn">
-            <svg class="search-btn__icon" width="8" height="8">
-              <use href="./images/symbol-defs.svg#icon-search"></use>
-            </svg>
-          </button>
+        <ul class="lib-buttons">
+         <li class="lib-buttons-item"> 
+             <button class="lib-btn" type="button">Watched</button>
+        </li>
+         <li class="lib-buttons-item">
+              <button class="lib-btn" type="button">Queue</button>
+         </li>
         </div>
       </div>
     </header>
-    <main>
-    <section id="gallery" class="section gallery-section">
-    <div class="container">
-    <ul class="gallery"></ul>
-    </main>
     <!-- ❗️❗️❗️ Add partials like so for every page -->
     <!-- <include src="./partials/header.html"></include>
     <include src="./partials/mylib-header.html"></include> -->

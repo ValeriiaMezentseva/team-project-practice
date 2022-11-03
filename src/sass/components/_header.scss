@@ -1,14 +1,11 @@
 .header {
-  top: 0;
-  left: 0;
   width: 100%;
-  display: block;
-}
-.header__container {
   height: 230px;
+  margin-right: auto;
+  margin-left: auto;
+  display: block;
   @media screen and (min-width: 1280px) {
     height: 216px;
-    width: 1280px;
     background-image: url(../images/background/bckgr-desktop1x.jpg);
     @media (min-device-pixel-ratio: 2),
       (min-resolution: 192dpi),
@@ -18,7 +15,6 @@
   }
   @media screen and (min-width: 768px) {
     height: 216px;
-    width: 768px;
     background-image: url(../images/background/bckgr-tablet1x.jpg);
     @media (min-device-pixel-ratio: 2),
       (min-resolution: 192dpi),
@@ -26,7 +22,7 @@
       background-image: url(../images/background/bckgr-tablet2x.jpg);
     }
   }
-  @media screen and (min-width: 320px) {
+  @media screen and (max-width: 767px) {
     background-image: url(../images/background/bckgr-phone1x.jpg);
     @media (min-device-pixel-ratio: 2),
       (min-resolution: 192dpi),
@@ -37,25 +33,18 @@
 
   background-repeat: no-repeat;
   background-position: center;
-  background-size: cover;
-  max-width: 1600px;
-  // margin: 0 auto;
+  background-size: 100% 230px;
 }
 
 .header__nav {
   display: flex;
   padding-top: 40px;
+  justify-content: space-between;
+  align-items: center;
 }
 .header__nav-list {
   display: flex;
   margin-right: 0;
-  margin-left: 112px;
-  @media screen and (min-width: 768px) {
-    margin-left: 387px;
-  }
-  @media screen and (min-width: 1280px) {
-    margin-left: 898px;
-  }
 }
 .header__nav-item {
   &:not(:last-child) {
@@ -88,13 +77,15 @@
 }
 .header-logo__icon {
   margin-right: 8px;
+  margin-top: 5px;
 }
 
 .container {
   width: 100%;
   padding-left: 20px;
   padding-right: 20px;
-  margin: 0 auto;
+  margin-right: auto;
+  margin-left: auto;
   @media screen and (min-width: 320px) {
     width: 320px;
   }
@@ -110,9 +101,17 @@
 
 .search-form {
   position: relative;
-  display: flex;
   justify-content: center;
   margin-top: 40px;
+  width: 280px;
+  margin-left: auto;
+  margin-right: auto;
+  @media screen and (min-width: 768px) {
+    width: 336px;
+  }
+  // @media screen and (min-width: 1280px) {
+  //   width: 394px;
+  // }
 }
 
 .search-form_input {
@@ -121,34 +120,17 @@
   outline: none;
   border: none;
   border-bottom: 0.5px solid #ffffff;
-
-  @media screen and (min-width: 768px) {
-    width: 336px;
-  }
-
-  @media screen and (min-width: 1280px) {
-    width: 394px;
-  }
 }
 
 .search-btn {
   position: absolute;
-  top: 0px;
-  left: 266px;
+  top: 0;
+  right: 0;
   display: block;
   border-radius: 5px;
   background-color: transparent;
   border: none;
-
-  @media screen and (min-width: 768px) {
-    top: 2px;
-    left: 506px;
-  }
-
-  @media screen and (min-width: 1280px) {
-    top: 0px;
-    left: 790px;
-  }
+  cursor: pointer;
 }
 
 input::placeholder {
