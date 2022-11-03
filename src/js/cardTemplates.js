@@ -1,5 +1,6 @@
 import refs from './ refs';
 import axios from 'axios';
+import { save, load } from './localeStorageHelper';
 
 const KEY = '?api_key=a672ae57e08bb16567badfa77d9e520f';
 const basePosterUrl = 'https://image.tmdb.org/t/p/';
@@ -27,3 +28,47 @@ async function getGenreList() {
     }
 }
 
+function generateGenreList(ids) {
+    if (localStorage.key === GENRE_LIST_KEY) {
+        return (genreList = load(GENRE_LIST_KEY));
+    }
+    let genreNames = ids.map(id => genreList[id])
+    if (genreNames > 2) {
+        return `${genreNames[0]}, ${genresName[1]}, Other `
+    }
+    return genreNames.join(', ')
+}
+
+async function setGenreListToLocalStorage() {
+    if (localStorage.key === GENRE_LIST_KEY) {
+        return;
+    }
+    await getGenreList();
+    save(GENRE_LIST_KEY, genreList);
+}
+
+async function makeMovieCard(movieInfo) {
+    await setGenreListToLocalStorage();
+    return movieInfo
+        .map(
+            ({
+                id,
+                title,
+                poster_path,
+                genre_ids,
+                release_date,
+                vote_average,
+            
+            }) => `<li class="movie-card" data="${id}">
+            <div class="movie-card__wrapper">
+            <img src="${generatePosterImgLink(poster_path)}"
+            alt="${title} movie poster"
+            loading = "lazy"
+            class="movie-card__img"/>
+            </div>
+            <div class="movie-card__text">
+            <h2 class="movie-card__title">${title.toUpperCase()}</h2>
+            <p class="movie-card__info">${generateGenreList(genre_ids)}
+        `
+    )
+}
