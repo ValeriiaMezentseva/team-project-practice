@@ -68,7 +68,13 @@ async function makeMovieCard(movieInfo) {
             </div>
             <div class="movie-card__text">
             <h2 class="movie-card__title">${title.toUpperCase()}</h2>
-            <p class="movie-card__info">${generateGenreList(genre_ids)}
+            <p class="movie-card__info">${generateGenreList(genre_ids)} | ${new Date(release_date).getFullYear()}
+            <span class="movie-card__rating">${vote_average.toFixed(1)}</span></p> 
+            </div>
+            </li>
         `
-    )
+        )
+        .join('');
 }
+
+export { makeMovieCard };

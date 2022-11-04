@@ -3,9 +3,6 @@ const refs = {
     searchInput: document.querySelector('.search-form_input'),
     searchBtn: document.querySelector('.search-btn'),
     galleryList: document.querySelector('.gallery'),
-    body: document.querySelector('body'),
-
-
-
+    body: document.querySelector('body'),z
 }
 export default refs;
